@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Oxanium, Rajdhani } from "next/font/google";
 import { EmberField } from "@/components/ember-field";
-import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { SiteHeader } from "@/components/site-chrome";
+import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-body", subsets: ["latin"] });
@@ -25,7 +26,7 @@ export default function RootLayout({ children, modal }: LayoutProps<"/">) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${oxanium.variable} ${rajdhani.variable}`}>
       <body>
-        <div className="page-shell">
+        <div className="page-shell" id="topo">
           <EmberField />
           <SiteHeader />
           <main>{children}</main>
