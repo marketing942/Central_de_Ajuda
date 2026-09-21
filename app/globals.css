@@ -229,9 +229,11 @@ aside.notion-color-blue_background { border-color: rgba(116,174,224,.4); backgro
 .footer-logo { width: 170px; height: auto; }
 .footer-brand p { max-width: 340px; margin: 1.1rem 0 0; color: var(--text-soft); line-height: 1.7; }
 .footer-brand strong { color: var(--gold-light); font-weight: 600; }
-.footer-social { display: flex; gap: .6rem; margin-top: 1.4rem; }
-.footer-social a { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid var(--border); border-radius: 50%; color: var(--gold-light); background: rgba(24,24,30,.7); transition: border-color .2s ease, background .2s ease, transform .2s ease; }
-.footer-social a:hover { transform: translateY(-2px); border-color: var(--gold-light); background: rgba(175,146,86,.12); }
+.footer-social { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.4rem; }
+.footer-social a { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid var(--border); border-radius: 50%; color: var(--gold-light); background: rgba(24,24,30,.7); transition: border-color .2s ease, background .2s ease, transform .2s ease, color .2s ease; }
+.footer-social a:hover { transform: translateY(-2px); border-color: var(--gold-light); color: var(--gold-pale); background: rgba(175,146,86,.12); }
+.footer-site-link { display: inline-flex; align-items: center; gap: .35rem; margin-top: 1.2rem; color: var(--gold-light); font: 700 .74rem var(--font-ui); letter-spacing: .1em; text-transform: uppercase; }
+.footer-site-link:hover { color: var(--gold-pale); }
 
 .footer-column h2 { display: flex; align-items: center; gap: .6rem; margin: 0 0 1.2rem; color: var(--gold-light); font: 700 .78rem var(--font-ui); letter-spacing: .16em; text-transform: uppercase; }
 .footer-column h2::after { content: ""; flex: 1; max-width: 36px; height: 1px; background: var(--gold); opacity: .6; }
