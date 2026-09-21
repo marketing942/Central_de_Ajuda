@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Clock, Mail, MessageCircle } from "lucide-react";
-import { getContactChannels, MAIN_SITE_URL } from "@/lib/contact";
+import { ArrowUpRight, Bot, Clock, Headset, Mail, MessageCircle } from "lucide-react";
+import { getSupportEmail, isChannelOpen, MAIN_SITE_URL, SUPPORT_CHANNELS, type SupportChannel } from "@/lib/contact";
 
 export function SiteHeader() {
-  const { whatsappUrl } = getContactChannels();
   return (
     <header className="site-header">
       <div className="container site-header-inner">
@@ -17,56 +16,79 @@ export function SiteHeader() {
           <a className="header-link" href={MAIN_SITE_URL}>
             cppem.com.br <ArrowUpRight size={14} />
           </a>
-          {whatsappUrl && (
-            <a className="whatsapp-button compact" href={whatsappUrl} target="_blank" rel="noreferrer">
-              <MessageCircle size={16} /> <span>WhatsApp</span>
-            </a>
-          )}
+          <a className="whatsapp-button compact" href="#atendimento">
+            <MessageCircle size={16} /> <span>Atendimento</span>
+          </a>
         </nav>
       </div>
     </header>
   );
 }
 
-export function ContactSection() {
-  const { whatsappUrl, email, hours } = getContactChannels();
-  const hasChannel = Boolean(whatsappUrl || email);
+function ChannelStatus({ channel }: { channel: SupportChannel }) {
+  const open = isChannelOpen(channel);
+  if (open === null) return <span className="channel-status online">Sempre disponível</span>;
+  return open ? (
+    <span className="channel-status online">Disponível agora</span>
+  ) : (
+    <span className="channel-status offline">Volta às {channel.hours!.open}h</span>
+  );
+}
 
+function ChannelCard({ channel, compact = false }: { channel: SupportChannel; compact?: boolean }) {
+  const Icon = channel.kind === "ai" ? Bot : Headset;
   return (
-    <section className="contact-section" aria-labelledby="contato-titulo">
+    <article className={`channel-card${compact ? " compact" : ""}`}>
+      <header>
+        <span className="channel-icon">
+          <Icon size={compact ? 20 : 24} aria-hidden />
+        </span>
+        <div>
+          <h3>{channel.title}</h3>
+          <p className="channel-hours">
+            <Clock size={14} aria-hidden /> {channel.hoursLabel}
+          </p>
+          <ChannelStatus channel={channel} />
+        </div>
+      </header>
+      {!compact && <p className="channel-description">{channel.description}</p>}
+      <a className="whatsapp-button" href={channel.href} target="_blank" rel="noreferrer">
+        <MessageCircle size={18} aria-hidden /> {channel.cta}
+      </a>
+    </article>
+  );
+}
+
+export function ContactSection() {
+  const email = getSupportEmail();
+  return (
+    <section className="contact-section" id="atendimento" aria-labelledby="contato-titulo">
       <div className="container contact-inner">
         <span className="eyebrow">Atendimento</span>
         <h2 id="contato-titulo" className="section-title">Ainda precisa de ajuda?</h2>
-        <p className="section-copy">
-          {hasChannel
-            ? "Fale com a equipe CPPEM. Para agilizar, envie seu nome completo, turma ou produto contratado e uma descrição objetiva da dúvida."
-            : "Os canais oficiais de atendimento serão divulgados aqui em breve."}
-        </p>
-        <div className="contact-actions">
-          {whatsappUrl ? (
-            <a className="whatsapp-button large" href={whatsappUrl} target="_blank" rel="noreferrer">
-              <MessageCircle size={20} /> Falar no WhatsApp
-            </a>
-          ) : (
-            // Sem SUPORTE_WHATSAPP_URL o botão aparece desativado, para o
-            // layout já ficar pronto enquanto o número não é definido.
-            <span className="whatsapp-button large" aria-disabled="true">
-              <MessageCircle size={20} /> WhatsApp em breve
-            </span>
-          )}
-          {email && (
-            <a className="ghost-button" href={`mailto:${email}`}>
-              <Mail size={18} /> {email}
-            </a>
-          )}
+        <p className="section-copy">Escolha como prefere falar com o CPPEM pelo WhatsApp.</p>
+        <div className="channel-grid">
+          {SUPPORT_CHANNELS.map((channel) => <ChannelCard key={channel.id} channel={channel} />)}
         </div>
-        {hours && (
-          <p className="contact-hours">
-            <Clock size={16} /> {hours}
-          </p>
+        {email && (
+          <a className="contact-email" href={`mailto:${email}`}>
+            <Mail size={16} aria-hidden /> ou escreva para {email}
+          </a>
         )}
       </div>
     </section>
+  );
+}
+
+/** Versão curta para o fim do popup do artigo. */
+export function ContactInline() {
+  return (
+    <aside className="contact-inline" aria-labelledby="contato-popup-titulo">
+      <h2 id="contato-popup-titulo">Ainda precisa de ajuda?</h2>
+      <div className="channel-grid">
+        {SUPPORT_CHANNELS.map((channel) => <ChannelCard key={channel.id} channel={channel} compact />)}
+      </div>
+    </aside>
   );
 }
 

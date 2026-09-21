@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { ArticleModal } from "@/components/article-modal";
 import { ArticleView } from "@/components/article-view";
+import { ContactInline } from "@/components/site-chrome";
 import { getArticle } from "@/lib/notion/help-center";
 
 // Clique num artigo dentro do site: abre o popup sobre a página atual.
@@ -13,6 +14,7 @@ export default async function ArticleModalPage({ params }: PageProps<"/artigo/[c
   return (
     <ArticleModal labelledBy="artigo-titulo">
       <ArticleView article={data.article} blocks={data.blocks} titleId="artigo-titulo" headingLevel={2} />
+      <ContactInline />
     </ArticleModal>
   );
 }

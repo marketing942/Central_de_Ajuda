@@ -193,14 +193,30 @@ aside.notion-color-green_background { border-color: rgba(111,196,151,.45); backg
 aside.notion-color-blue_background { border-color: rgba(116,174,224,.4); background: rgba(116,174,224,.07); }
 
 /* Contato + rodapé */
-.contact-section { padding: 4.5rem 0; border-top: 1px solid var(--border); background: radial-gradient(ellipse 45% 90% at 50% 100%, rgba(175,146,86,.14), transparent 70%), rgba(17,17,21,.82); }
+.contact-section { scroll-margin-top: 72px; padding: 4.5rem 0; border-top: 1px solid var(--border); background: radial-gradient(ellipse 45% 90% at 50% 100%, rgba(175,146,86,.14), transparent 70%), rgba(17,17,21,.82); }
 .contact-inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
 .contact-inner .eyebrow::after { content: ""; width: 28px; height: 1px; background: var(--gold); }
 .contact-inner .section-copy { margin-inline: auto; }
-.contact-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; margin-top: 1.8rem; }
-.whatsapp-button.large { min-height: 54px; padding: .9rem 1.8rem; font-size: .95rem; box-shadow: 0 16px 40px rgba(22,140,67,.25); }
-.whatsapp-button[aria-disabled="true"] { background: var(--surface-3); color: var(--text-muted); box-shadow: none; cursor: not-allowed; transform: none; }
-.contact-hours { display: flex; align-items: center; justify-content: center; gap: .5rem; margin: 1.1rem 0 0; color: var(--gold-light); font-size: .9rem; }
+.channel-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; width: min(100%, 860px); margin-top: 2rem; text-align: left; }
+.channel-card { display: flex; flex-direction: column; gap: 1rem; padding: 1.4rem; border: 1px solid var(--border); border-radius: .75rem; background: linear-gradient(145deg, rgba(24,24,30,.94), rgba(14,14,17,.94)); }
+.channel-card > header { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: .85rem; }
+.channel-card h3 { margin: 0; font: 700 1.05rem/1.15 var(--font-display); text-transform: uppercase; }
+.channel-icon { display: grid; width: 46px; height: 46px; place-items: center; border: 1px solid var(--border-active); border-radius: .55rem; color: var(--gold-light); background: rgba(175,146,86,.08); }
+.channel-hours { display: flex; align-items: center; gap: .35rem; margin: .3rem 0 0; color: var(--text-muted); font-size: .85rem; }
+.channel-description { margin: 0; color: var(--text-soft); font-size: .92rem; line-height: 1.6; }
+.channel-card .whatsapp-button { margin-top: auto; box-shadow: 0 14px 36px rgba(22,140,67,.2); }
+.channel-status { display: inline-block; margin-top: .55rem; padding: .3rem .55rem; border-radius: 999px; font: 700 .64rem var(--font-ui); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.channel-status::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: .35rem; border-radius: 50%; vertical-align: middle; background: currentColor; }
+.channel-status.online { color: #5fd08f; background: rgba(95,208,143,.1); }
+.channel-status.offline { color: var(--text-muted); background: rgba(255,255,255,.05); }
+.contact-email { display: inline-flex; align-items: center; gap: .45rem; margin-top: 1.4rem; color: var(--text-soft); font-size: .9rem; }
+.contact-email:hover { color: var(--gold-light); }
+.contact-inline { margin-top: 2.2rem; padding-top: 1.6rem; border-top: 1px solid var(--border); }
+.contact-inline h2 { margin: 0; font: 700 1.15rem var(--font-display); text-transform: uppercase; }
+.contact-inline .channel-grid { width: 100%; margin-top: 1rem; }
+.channel-card.compact { padding: 1rem; gap: .85rem; }
+.channel-card.compact .channel-icon { width: 40px; height: 40px; }
+.channel-card.compact h3 { font-size: .95rem; }
 .site-footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 1.6rem 0; color: var(--text-muted); font-size: .85rem; }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
 .site-footer a:hover { color: var(--gold-light); }
@@ -213,6 +229,10 @@ aside.notion-color-blue_background { border-color: rgba(116,174,224,.4); backgro
   .category-sidebar nav { display: flex; overflow-x: auto; gap: .4rem; padding-bottom: .3rem; }
   .category-sidebar nav a { flex: 0 0 auto; grid-template-columns: 16px auto auto; border: 1px solid var(--border); }
   .article-list.two-columns { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  .channel-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {

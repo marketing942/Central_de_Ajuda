@@ -21,6 +21,17 @@
 - Conteúdo em cache por 5 min. Para publicar na hora:
   `POST /api/revalidate` com header `x-revalidate-secret: $REVALIDATE_SECRET`.
 
+## Atendimento (WhatsApp)
+
+"Ainda precisa de ajuda?" (no fim das páginas e do popup) mostra dois canais,
+definidos em [lib/contact.ts](lib/contact.ts):
+
+- **Assistente virtual (IA), 24h** → `links.cppem.com.br/suporte-cppem-ass`
+- **Suporte ao aluno, 12h–22h** → `links.cppem.com.br/cppem-suporte-aluno`
+  (mostra "Disponível agora" / "Volta às 12h" pelo horário de Brasília)
+
+O número de destino é trocado no links.cppem.com.br, sem deploy aqui.
+
 ## Vídeos e embeds
 
 No Notion, use `/video` ou `/embed` com o link. Vira player dentro do popup:

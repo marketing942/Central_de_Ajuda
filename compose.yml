@@ -14,9 +14,7 @@ services:
       NOTION_TOKEN:              ${NOTION_TOKEN}
       NOTION_AJUDA_DATABASE_ID:  ${NOTION_AJUDA_DATABASE_ID}
       REVALIDATE_SECRET:         ${REVALIDATE_SECRET}
-      SUPORTE_WHATSAPP_URL:      ${SUPORTE_WHATSAPP_URL}
       SUPORTE_EMAIL:             ${SUPORTE_EMAIL}
-      SUPORTE_HORARIO:           ${SUPORTE_HORARIO}
     restart: unless-stopped
     deploy:
       resources:
