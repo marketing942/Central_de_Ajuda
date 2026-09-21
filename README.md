@@ -27,8 +27,9 @@
 definidos em [lib/contact.ts](lib/contact.ts):
 
 - **Assistente virtual (IA), 24h** → `links.cppem.com.br/suporte-cppem-ass`
-- **Suporte ao aluno, 12h–22h** → `links.cppem.com.br/cppem-suporte-aluno`
-  (mostra "Disponível agora" / "Volta às 12h" pelo horário de Brasília)
+- **Suporte ao aluno, seg. a sex. das 12h às 22h, exceto feriados** →
+  `links.cppem.com.br/cppem-suporte-aluno` (mostra "Disponível agora" /
+  "Volta segunda às 12h" pelo horário de Brasília; feriados em [lib/hours.ts](lib/hours.ts))
 
 O número de destino é trocado no links.cppem.com.br, sem deploy aqui.
 

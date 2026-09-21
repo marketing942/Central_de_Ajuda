@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Bot, Clock, Headset, Mail, MessageCircle } from "lucide-react";
-import { getSupportEmail, isChannelOpen, MAIN_SITE_URL, SUPPORT_CHANNELS, type SupportChannel } from "@/lib/contact";
+import { channelReturnLabel, getSupportEmail, isChannelOpen, MAIN_SITE_URL, SUPPORT_CHANNELS, type SupportChannel } from "@/lib/contact";
 
 export function SiteHeader() {
   return (
@@ -31,7 +31,7 @@ function ChannelStatus({ channel }: { channel: SupportChannel }) {
   return open ? (
     <span className="channel-status online">Disponível agora</span>
   ) : (
-    <span className="channel-status offline">Volta às {channel.hours!.open}h</span>
+    <span className="channel-status offline">{channelReturnLabel(channel)}</span>
   );
 }
 

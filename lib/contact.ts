@@ -1,5 +1,5 @@
 import "server-only";
-import { isWithinHours } from "@/lib/hours";
+import { isWithinHours, nextOpeningLabel, type Schedule } from "@/lib/hours";
 
 // Canais oficiais exibidos em "Ainda precisa de ajuda?". Os links são
 // redirecionadores do links.cppem.com.br: trocar o número do WhatsApp é feito
@@ -14,7 +14,7 @@ export type SupportChannel = {
   cta: string;
   href: string;
   /** Horário de atendimento (Brasília). null = 24 horas. */
-  hours: { open: number; close: number } | null;
+  hours: Schedule | null;
 };
 
 export const SUPPORT_CHANNELS: SupportChannel[] = [
@@ -33,10 +33,11 @@ export const SUPPORT_CHANNELS: SupportChannel[] = [
     kind: "team",
     title: "Suporte ao aluno",
     description: "Fale com a equipe CPPEM. Envie nome completo, turma ou produto e a sua dúvida.",
-    hoursLabel: "Das 12h às 22h",
+    hoursLabel: "Seg. a sex., das 12h às 22h",
     cta: "Falar com a equipe",
     href: "https://links.cppem.com.br/cppem-suporte-aluno",
-    hours: { open: 12, close: 22 },
+    // Sem atendimento humano aos sábados, domingos e feriados (ver lib/hours.ts).
+    hours: { open: 12, close: 22, weekdays: [1, 2, 3, 4, 5], closedOnHolidays: true },
   },
 ];
 
@@ -44,6 +45,13 @@ export const SUPPORT_CHANNELS: SupportChannel[] = [
 export function isChannelOpen(channel: SupportChannel, now = new Date()): boolean | null {
   if (!channel.hours) return null;
   return isWithinHours(channel.hours, now);
+}
+
+/** Texto de retorno para canal fechado, ex.: "Volta segunda às 12h". */
+export function channelReturnLabel(channel: SupportChannel, now = new Date()): string {
+  if (!channel.hours) return "";
+  const when = nextOpeningLabel(channel.hours, now);
+  return when === "em breve" ? "Volta em breve" : `Volta ${when} às ${channel.hours.open}h`;
 }
 
 export function getSupportEmail(): string | null {
