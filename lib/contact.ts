@@ -60,3 +60,6 @@ export function getSupportEmail(): string | null {
 }
 
 export const MAIN_SITE_URL = process.env.CPPEM_SITE_URL?.trim() || "https://cppem.com.br";
+
+/** Confirmador de número de WhatsApp oficial do CPPEM (combate a golpes). */
+export const SCAM_CHECK_URL = "https://confirma.cppem.com.br/";

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, Oxanium, Rajdhani } from "next/font/google";
-import { EmberField } from "@/components/ember-field";
 import { SiteHeader } from "@/components/site-chrome";
 import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
@@ -27,7 +26,6 @@ export default function RootLayout({ children, modal }: LayoutProps<"/">) {
     <html lang="pt-BR" className={`${inter.variable} ${oxanium.variable} ${rajdhani.variable}`}>
       <body>
         <div className="page-shell" id="topo">
-          <EmberField />
           <SiteHeader />
           <main>{children}</main>
           <SiteFooter />

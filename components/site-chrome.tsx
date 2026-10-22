@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Bot, Clock, Headset, Mail, MessageCircle } from "lucide-react";
-import { channelReturnLabel, getSupportEmail, isChannelOpen, MAIN_SITE_URL, SUPPORT_CHANNELS, type SupportChannel } from "@/lib/contact";
+import { Bot, Clock, Headset, Mail, MessageCircle } from "lucide-react";
+import { channelReturnLabel, getSupportEmail, isChannelOpen, SUPPORT_CHANNELS, type SupportChannel } from "@/lib/contact";
+import { ScamAlert } from "@/components/scam-alert";
 
 export function SiteHeader() {
   return (
@@ -12,14 +13,6 @@ export function SiteHeader() {
           <span className="brand-divider" aria-hidden />
           <span className="brand-label">Central de Ajuda</span>
         </Link>
-        <nav className="header-actions" aria-label="Atalhos">
-          <a className="header-link" href={MAIN_SITE_URL}>
-            cppem.com.br <ArrowUpRight size={14} />
-          </a>
-          <a className="whatsapp-button compact" href="#atendimento">
-            <MessageCircle size={16} /> <span>Atendimento</span>
-          </a>
-        </nav>
       </div>
     </header>
   );
@@ -70,6 +63,7 @@ export function ContactSection() {
         <div className="channel-grid">
           {SUPPORT_CHANNELS.map((channel) => <ChannelCard key={channel.id} channel={channel} />)}
         </div>
+        <ScamAlert as="h3" id="golpes-contato-titulo" />
         {email && (
           <a className="contact-email" href={`mailto:${email}`}>
             <Mail size={16} aria-hidden /> ou escreva para {email}

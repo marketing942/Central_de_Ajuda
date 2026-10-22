@@ -18,8 +18,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visibl
 
 .page-shell { min-height: 100vh; display: flex; flex-direction: column; background: radial-gradient(900px 460px at 90% 0%, rgba(175,146,86,.075), transparent 65%), radial-gradient(800px 500px at 0% 75%, rgba(91,140,184,.035), transparent 70%), var(--bg); }
 .page-shell > main { position: relative; z-index: 1; flex: 1; }
-/* Brasas: fixas atrás do conteúdo (main e rodapé ficam acima com z-index 1). */
-.ember-field { position: fixed; z-index: 0; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .container { width: min(calc(100% - 2rem), var(--max-width)); margin-inline: auto; }
 .section { position: relative; padding: 4.5rem 0; }
 .section-alt { background: linear-gradient(180deg, rgba(24,24,30,.82), rgba(12,12,15,.94)); border-block: 1px solid var(--border); }
@@ -44,9 +42,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visibl
 .brand img { width: 118px; height: auto; }
 .brand-divider { width: 1px; height: 28px; background: var(--border-active); }
 .brand-label { color: var(--gold-light); font: 700 .82rem/1 var(--font-ui); letter-spacing: .14em; text-transform: uppercase; }
-.header-actions { display: flex; align-items: center; gap: .9rem; }
-.header-link { display: inline-flex; align-items: center; gap: .3rem; color: var(--text-soft); font: 700 .78rem var(--font-ui); letter-spacing: .06em; text-transform: uppercase; }
-.header-link:hover { color: var(--gold-light); }
 
 /* Hero + busca */
 .help-hero { position: relative; overflow: hidden; padding: 5rem 0 5.5rem; border-bottom: 1px solid var(--border); background: radial-gradient(ellipse 70% 90% at 50% 0%, rgba(175,146,86,.2), transparent 70%), linear-gradient(180deg, #121014, #0a0a0b); }
@@ -192,6 +187,18 @@ aside.notion-color-yellow_background { border-color: rgba(224,195,107,.45); back
 aside.notion-color-green_background { border-color: rgba(111,196,151,.45); background: rgba(111,196,151,.08); }
 aside.notion-color-blue_background { border-color: rgba(116,174,224,.4); background: rgba(116,174,224,.07); }
 
+/* Alerta contra golpes: confirmador de número oficial do WhatsApp */
+.scam-alert { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 1.1rem; width: min(100%, 860px); margin-inline: auto; padding: 1.2rem 1.4rem; border: 1px solid var(--border-active); border-radius: .75rem; background: linear-gradient(145deg, rgba(175,146,86,.14), rgba(14,14,17,.94) 70%); text-align: left; }
+.scam-alert .channel-icon { width: 50px; height: 50px; }
+.scam-alert h2, .scam-alert h3 { margin: 0; font: 700 1.2rem/1.15 var(--font-display); text-transform: uppercase; letter-spacing: -.01em; color: var(--gold-pale); }
+.scam-alert p { margin: .3rem 0 0; color: var(--text-soft); line-height: 1.55; }
+.scam-alert .gold-button { white-space: nowrap; }
+.contact-inner .scam-alert { margin-top: 1.4rem; }
+@media (max-width: 640px) {
+  .scam-alert { grid-template-columns: auto minmax(0, 1fr); }
+  .scam-alert .gold-button { grid-column: 1 / -1; width: 100%; }
+}
+
 /* Contato + rodapé */
 .contact-section { scroll-margin-top: 72px; padding: 4.5rem 0; border-top: 1px solid var(--border); background: radial-gradient(ellipse 45% 90% at 50% 100%, rgba(175,146,86,.14), transparent 70%), rgba(17,17,21,.82); }
 .contact-inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
@@ -295,8 +302,6 @@ aside.notion-color-blue_background { border-color: rgba(116,174,224,.4); backgro
   .brand img { width: 92px; }
   .brand-divider { display: none; }
   .brand-label { font-size: .7rem; }
-  .header-link { display: none; }
-  .whatsapp-button.compact span { display: none; }
   .category-header { flex-direction: column; }
   .article-modal { padding: 0; place-items: end center; }
   .article-modal-dialog { max-height: 92vh; border-radius: .9rem .9rem 0 0; }
