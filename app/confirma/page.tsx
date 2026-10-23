@@ -2,12 +2,16 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { BadgeCheck, Database, LockKeyhole, SearchCheck, ShieldCheck } from "lucide-react";
 import { PhoneChecker } from "@/components/phone-checker";
+import { openGraphFor } from "@/lib/seo";
 import "./confirma.css";
+
+const description = "Confirme se um número de WhatsApp ou telefone pertence oficialmente à equipe CPPEM.";
 
 export const metadata: Metadata = {
   title: "Confirmar número oficial",
-  description: "Confirme se um número de WhatsApp ou telefone pertence oficialmente à equipe CPPEM.",
+  description,
   alternates: { canonical: "/confirma" },
+  openGraph: openGraphFor({ title: "Confirmar número oficial do CPPEM", description, path: "/confirma" }),
 };
 
 export default function ConfirmaPage() {

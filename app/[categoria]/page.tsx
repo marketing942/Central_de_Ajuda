@@ -4,12 +4,21 @@ import { notFound } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 import { CategoryIcon } from "@/components/category-icon";
 import { ArticleCard, HelpHero } from "@/components/help-cards";
+import { JsonLd } from "@/components/json-ld";
 import { ContactSection } from "@/components/site-chrome";
 import { getCategory, getHelpCenter } from "@/lib/notion/help-center";
+import { breadcrumbJsonLd, openGraphFor } from "@/lib/seo";
 
 export async function generateMetadata({ params }: PageProps<"/[categoria]">): Promise<Metadata> {
   const data = await getCategory((await params).categoria);
-  return data ? { title: data.category.name, description: data.category.description } : {};
+  if (!data) return {};
+  const { name, description, slug } = data.category;
+  return {
+    title: name,
+    description,
+    alternates: { canonical: `/${slug}` },
+    openGraph: openGraphFor({ title: `${name} | Central de Ajuda CPPEM`, description, path: `/${slug}` }),
+  };
 }
 
 export default async function CategoryPage({ params }: PageProps<"/[categoria]">) {
@@ -20,6 +29,7 @@ export default async function CategoryPage({ params }: PageProps<"/[categoria]">
 
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: category.name, path: `/${category.slug}` }])} />
       <HelpHero articles={allArticles} compact />
 
       <section className="section">

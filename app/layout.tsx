@@ -3,6 +3,7 @@ import { Inter, Oxanium, Rajdhani } from "next/font/google";
 import { Crosshair } from "@/components/crosshair";
 import { SiteHeader } from "@/components/site-chrome";
 import { SiteFooter } from "@/components/site-footer";
+import { OG_IMAGE } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-body", subsets: ["latin"] });
@@ -19,7 +20,15 @@ export const metadata: Metadata = {
   title: { default: "Central de Ajuda CPPEM", template: "%s | Central de Ajuda CPPEM" },
   description: "Orientações oficiais do CPPEM: plataforma, turmas, mentoria, materiais e pagamentos.",
   applicationName: "Central de Ajuda CPPEM",
-  openGraph: { title: "Central de Ajuda CPPEM", description: "Como podemos te ajudar?", type: "website", locale: "pt_BR" },
+  openGraph: {
+    title: "Central de Ajuda CPPEM",
+    description: "Como podemos te ajudar?",
+    type: "website",
+    locale: "pt_BR",
+    siteName: "Central de Ajuda CPPEM",
+    images: [OG_IMAGE],
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children, modal }: LayoutProps<"/">) {
