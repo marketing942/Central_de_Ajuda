@@ -1,6 +1,20 @@
+import type { Metadata } from "next";
 import { ArticleCard, CategoryCard, HelpHero } from "@/components/help-cards";
+import { JsonLd } from "@/components/json-ld";
 import { ContactSection } from "@/components/site-chrome";
 import { getHelpCenter } from "@/lib/notion/help-center";
+import { openGraphFor, websiteJsonLd } from "@/lib/seo";
+
+const title = "Central de Ajuda CPPEM: suporte ao aluno e atendimento";
+const description =
+  "Orientações oficiais do CPPEM sobre plataforma, turmas, mentoria, materiais e pagamentos, e os canais de atendimento ao aluno no WhatsApp.";
+
+export const metadata: Metadata = {
+  title: { absolute: title },
+  description,
+  alternates: { canonical: "/" },
+  openGraph: openGraphFor({ title, description, path: "/" }),
+};
 
 export default async function HomePage() {
   const { categories, articles } = await getHelpCenter();
@@ -8,6 +22,7 @@ export default async function HomePage() {
 
   return (
     <>
+      <JsonLd data={websiteJsonLd()} />
       <HelpHero articles={articles} />
 
       <section className="section" aria-labelledby="categorias-titulo">

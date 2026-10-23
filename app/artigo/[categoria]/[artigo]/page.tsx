@@ -4,17 +4,22 @@ import { notFound } from "next/navigation";
 import { ChevronRight } from "lucide-react";
 import { ArticleView } from "@/components/article-view";
 import { ArticleCard } from "@/components/help-cards";
+import { JsonLd } from "@/components/json-ld";
 import { ContactSection } from "@/components/site-chrome";
 import { getArticle } from "@/lib/notion/help-center";
+import { breadcrumbJsonLd, openGraphFor } from "@/lib/seo";
 
 export async function generateMetadata({ params }: PageProps<"/artigo/[categoria]/[artigo]">): Promise<Metadata> {
   const { categoria, artigo } = await params;
   const data = await getArticle(categoria, artigo);
   if (!data) return {};
+  const description = data.article.summary || `${data.category.name} — Central de Ajuda CPPEM`;
+  const path = `/artigo/${categoria}/${artigo}`;
   return {
     title: data.article.title,
-    description: data.article.summary || `${data.category.name} — Central de Ajuda CPPEM`,
-    alternates: { canonical: `/artigo/${categoria}/${artigo}` },
+    description,
+    alternates: { canonical: path },
+    openGraph: openGraphFor({ title: data.article.title, description, path, type: "article" }),
   };
 }
 
@@ -26,6 +31,12 @@ export default async function ArticlePage({ params }: PageProps<"/artigo/[catego
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: data.category.name, path: `/${data.category.slug}` },
+          { name: data.article.title, path: `/artigo/${categoria}/${artigo}` },
+        ])}
+      />
       <section className="section article-page">
         <div className="container article-page-layout">
           <nav className="breadcrumb" aria-label="Você está em">
