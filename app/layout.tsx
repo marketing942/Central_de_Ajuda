@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Oxanium, Rajdhani } from "next/font/google";
+import { Crosshair } from "@/components/crosshair";
 import { SiteHeader } from "@/components/site-chrome";
 import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
@@ -31,6 +32,7 @@ export default function RootLayout({ children, modal }: LayoutProps<"/">) {
           <SiteFooter />
         </div>
         {modal}
+        <Crosshair />
       </body>
     </html>
   );

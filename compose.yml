@@ -15,6 +15,9 @@ services:
       NOTION_AJUDA_DATABASE_ID:  ${NOTION_AJUDA_DATABASE_ID}
       REVALIDATE_SECRET:         ${REVALIDATE_SECRET}
       SUPORTE_EMAIL:             ${SUPORTE_EMAIL}
+      NOTION_PHONE_TOKEN:        ${NOTION_PHONE_TOKEN}
+      NOTION_PHONE_DATABASE_ID:  ${NOTION_PHONE_DATABASE_ID}
+      PHONE_REGISTRY_SOURCE:     ${PHONE_REGISTRY_SOURCE}
     restart: unless-stopped
     deploy:
       resources:

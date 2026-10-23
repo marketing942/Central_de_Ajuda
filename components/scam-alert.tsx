@@ -1,5 +1,6 @@
+import Link from "next/link";
 import { ArrowUpRight, ShieldAlert } from "lucide-react";
-import { SCAM_CHECK_URL } from "@/lib/contact";
+import { SCAM_CHECK_PATH } from "@/lib/contact";
 
 /** Alerta contra golpes, com o link do confirmador de número oficial do CPPEM. */
 export function ScamAlert({ as: Heading = "h2", id }: { as?: "h2" | "h3"; id: string }) {
@@ -12,9 +13,9 @@ export function ScamAlert({ as: Heading = "h2", id }: { as?: "h2" | "h3"; id: st
         <Heading id={id}>Não leve golpes!</Heading>
         <p>Confira se o número de WhatsApp é oficial do CPPEM.</p>
       </div>
-      <a className="gold-button" href={SCAM_CHECK_URL} target="_blank" rel="noopener noreferrer">
+      <Link className="gold-button" href={SCAM_CHECK_PATH}>
         Confirmar número <ArrowUpRight size={16} aria-hidden />
-      </a>
+      </Link>
     </aside>
   );
 }

@@ -11,6 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const { categories, articles } = await getHelpCenter();
   return [
     { url: base, changeFrequency: "weekly", priority: 1 },
+    { url: `${base}/confirma`, changeFrequency: "monthly", priority: 0.5 },
     ...categories.map((category) => ({ url: `${base}/${category.slug}`, changeFrequency: "weekly" as const, priority: 0.7 })),
     ...articles.map((article) => ({ url: `${base}${articleHref(article)}`, lastModified: article.updatedAt, priority: 0.6 })),
   ];

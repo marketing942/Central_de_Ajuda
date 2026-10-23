@@ -240,6 +240,8 @@ aside.notion-color-blue_background { border-color: rgba(116,174,224,.4); backgro
 .footer-social a { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid var(--border); border-radius: 50%; color: var(--gold-light); background: rgba(24,24,30,.7); transition: border-color .2s ease, background .2s ease, transform .2s ease, color .2s ease; }
 .footer-social a:hover { transform: translateY(-2px); border-color: var(--gold-light); color: var(--gold-pale); background: rgba(175,146,86,.12); }
 .footer-site-link { display: inline-flex; align-items: center; gap: .35rem; margin-top: 1.2rem; color: var(--gold-light); font: 700 .74rem var(--font-ui); letter-spacing: .1em; text-transform: uppercase; }
+.footer-links { display: grid; justify-items: start; gap: .8rem; margin-top: 1.2rem; }
+.footer-links .footer-site-link { margin-top: 0; }
 .footer-site-link:hover { color: var(--gold-pale); }
 
 .footer-column h2 { display: flex; align-items: center; gap: .6rem; margin: 0 0 1.2rem; color: var(--gold-light); font: 700 .78rem var(--font-ui); letter-spacing: .16em; text-transform: uppercase; }
@@ -306,3 +308,13 @@ aside.notion-color-blue_background { border-color: rgba(116,174,224,.4); backgro
   .article-modal { padding: 0; place-items: end center; }
   .article-modal-dialog { max-height: 92vh; border-radius: .9rem .9rem 0 0; }
 }
+
+/* Mira de arma no lugar do cursor (só com mouse; ver components/crosshair.tsx) */
+html.has-crosshair, html.has-crosshair * { cursor: none !important; }
+.crosshair { position: fixed; top: 0; left: 0; z-index: 9999; width: 56px; height: 56px; margin: -28px 0 0 -28px; pointer-events: none; opacity: 0; transition: opacity .15s ease; will-change: transform; }
+.crosshair.is-on { opacity: 1; }
+.crosshair-art { display: block; width: 100%; height: 100%; color: #f0dcb0; filter: drop-shadow(0 0 1.5px rgba(0,0,0,.95)) drop-shadow(0 0 6px rgba(175,146,86,.35)); transition: transform .18s ease, color .18s ease; }
+.crosshair.is-lock .crosshair-art { color: #fff; transform: rotate(45deg) scale(.86); }
+.crosshair.is-fire .crosshair-art { transform: scale(.72); }
+.crosshair.is-lock.is-fire .crosshair-art { transform: rotate(45deg) scale(.72); }
+@media (prefers-reduced-motion: reduce) { .crosshair-art { transition: none; } }

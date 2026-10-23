@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUp, ArrowUpRight, Bot, Headset, MapPin } from "lucide-react";
+import { ArrowUp, ArrowUpRight, Bot, Headset, MapPin, ShieldCheck } from "lucide-react";
 import { CategoryIcon } from "@/components/category-icon";
 import { SOCIAL_LINKS, SocialIcon } from "@/components/social-icons";
-import { channelReturnLabel, isChannelOpen, MAIN_SITE_URL, SUPPORT_CHANNELS } from "@/lib/contact";
+import { channelReturnLabel, isChannelOpen, MAIN_SITE_URL, SCAM_CHECK_PATH, SUPPORT_CHANNELS } from "@/lib/contact";
 import { getHelpCenter } from "@/lib/notion/help-center";
 
 const siteLinks = [
@@ -46,9 +46,14 @@ export async function SiteFooter() {
               </a>
             ))}
           </div>
-          <a className="footer-site-link" href={MAIN_SITE_URL}>
-            Ir para o cppem.com.br <ArrowUpRight size={14} aria-hidden />
-          </a>
+          <div className="footer-links">
+            <a className="footer-site-link" href={MAIN_SITE_URL}>
+              Ir para o cppem.com.br <ArrowUpRight size={14} aria-hidden />
+            </a>
+            <Link className="footer-site-link" href={SCAM_CHECK_PATH}>
+              <ShieldCheck size={14} aria-hidden /> Confirmar número oficial
+            </Link>
+          </div>
         </div>
 
         {categories.length > 0 && (
