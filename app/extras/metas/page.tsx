@@ -21,7 +21,7 @@ export default function MetasPage() {
   return (
     <section className="ex-page">
       <div className="container" style={{ maxWidth: 1000 }}>
-        <ExtrasHead crumb="Metas e organização" titulo={<>Metas e <em>organização pessoal</em></>} lead="A aprovação vem da constância. Organize metas, treinos e rotina num lugar só." />
+        <ExtrasHead crumb="Metas e organização" titulo={<>Metas e <em>organização pessoal</em></>} lead="Grandes resultados vêm da constância. Organize metas, treinos e rotina num lugar só." />
         <div className="ex-box destaque">
           <div className="ex-box-head">
             <span className="ex-icon"><CalendarCheck size={22} aria-hidden /></span>

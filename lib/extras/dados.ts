@@ -1,5 +1,6 @@
 // Extras para alunos e clientes: os mesmos serviços da área da equipe (Utilitários CPPEM), com os textos
-// voltados para quem estuda no CPPEM. Wi-Fi: só a rede de visitantes (as redes internas não entram aqui).
+// voltados para alunos e clientes. Wi-Fi: só a rede de visitantes (as redes internas não entram aqui).
+// O CPPEM Saúde é interno da equipe e por isso não aparece aqui.
 
 export const WIFI_VISITANTES = { nome: "Cppem - 01 Visitantes", senha: "CppemWifi@Visitas123" };
 
@@ -88,7 +89,6 @@ export const rotaUrl = (u: Pick<Unidade, "lat" | "lng">) => `https://www.google.
 /* ---------- Links ---------- */
 
 export const LINKS = {
-  saude: "https://saude.cppem.com.br/login",
   parceiros: "https://cppem.com.br/parceiros",
   dominioFinanceiro: "https://app-dominio-financeiro1.vercel.app/",
   ebook: "https://checkout.cppem.com.br/pay/ebook-de-educacao-financeira-01",

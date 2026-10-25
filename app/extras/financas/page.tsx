@@ -20,7 +20,7 @@ export default function FinancasPage() {
   return (
     <section className="ex-page">
       <div className="container" style={{ maxWidth: 1000 }}>
-        <ExtrasHead crumb="Finanças" titulo={<>Finanças <em>pessoais</em></>} lead="Estudar com as contas em ordem tira um peso da cabeça. Estas ferramentas ajudam." />
+        <ExtrasHead crumb="Finanças" titulo={<>Finanças <em>pessoais</em></>} lead="Contas em ordem tiram um peso da cabeça. Estas ferramentas ajudam a organizar seu dinheiro." />
         <div className="ex-box destaque">
           <div className="ex-box-head">
             <span className="ex-icon"><Wallet size={22} aria-hidden /></span>

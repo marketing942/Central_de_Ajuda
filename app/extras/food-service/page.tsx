@@ -7,7 +7,7 @@ import "../extras.css";
 
 export const metadata: Metadata = {
   title: "Food Service",
-  description: "Restaurante parceiro, cantinas do prédio e apps de delivery para quem estuda na sede do CPPEM.",
+  description: "Restaurante parceiro, cantinas do prédio e apps de delivery para quem está na sede do CPPEM.",
   alternates: { canonical: "/extras/food-service" },
 };
 
@@ -31,11 +31,11 @@ export default function FoodServicePage() {
             <div className="ex-banner-copy">
               <span className="ex-kicker" style={{ display: "block" }}>Bom apetite</span>
               <b>Food Service</b>
-              <span>Almoço, lanche e delivery para o seu dia de estudos no CPPEM</span>
+              <span>Almoço, lanche e delivery para o seu dia no CPPEM</span>
             </div>
           </div>
           <p className="ex-banner-foot">
-            Vale para quem estuda presencialmente na sede. O selo &quot;Provavelmente ativa&quot; segue o horário de cada lugar;
+            Vale para quem está na sede do CPPEM. O selo &quot;Provavelmente ativa&quot; segue o horário de cada lugar;
             como são parceiros do CPPEM, pode acontecer de estarem fechados mesmo no horário.
           </p>
         </div>
