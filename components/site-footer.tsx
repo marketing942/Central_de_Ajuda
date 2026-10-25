@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUp, ArrowUpRight, Bot, Headset, MapPin, ShieldCheck } from "lucide-react";
+import { ArrowUp, ArrowUpRight, Bot, Headset, MapPin, ShieldCheck, Sparkles } from "lucide-react";
 import { CategoryIcon } from "@/components/category-icon";
 import { SOCIAL_LINKS, SocialIcon } from "@/components/social-icons";
 import { channelReturnLabel, isChannelOpen, MAIN_SITE_URL, SCAM_CHECK_PATH, SUPPORT_CHANNELS } from "@/lib/contact";
@@ -68,6 +68,12 @@ export async function SiteFooter() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/extras">
+                  <Sparkles size={15} aria-hidden />
+                  Extras para alunos
+                </Link>
+              </li>
             </ul>
           </nav>
         )}

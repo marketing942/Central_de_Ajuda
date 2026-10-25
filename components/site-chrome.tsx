@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Bot, Clock, Headset, Mail, MessageCircle } from "lucide-react";
+import { Bot, Clock, Headset, Mail, MessageCircle, Sparkles } from "lucide-react";
 import { channelReturnLabel, getSupportEmail, isChannelOpen, SUPPORT_CHANNELS, type SupportChannel } from "@/lib/contact";
 import { ScamAlert } from "@/components/scam-alert";
 
@@ -12,6 +12,9 @@ export function SiteHeader() {
           <Image src="/brand/logo-cppem.png" alt="CPPEM" width={700} height={253} priority />
           <span className="brand-divider" aria-hidden />
           <span className="brand-label">Central de Ajuda</span>
+        </Link>
+        <Link href="/extras" className="header-extras">
+          <Sparkles size={15} aria-hidden /> Extras
         </Link>
       </div>
     </header>

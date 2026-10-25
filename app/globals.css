@@ -42,6 +42,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visibl
 .brand img { width: 118px; height: auto; }
 .brand-divider { width: 1px; height: 28px; background: var(--border-active); }
 .brand-label { color: var(--gold-light); font: 700 .82rem/1 var(--font-ui); letter-spacing: .14em; text-transform: uppercase; }
+.header-extras { display: inline-flex; flex: 0 0 auto; align-items: center; gap: .45rem; min-height: 40px; padding: .5rem .9rem; border: 1px solid var(--border); border-radius: .45rem; color: var(--gold-light); background: rgba(175,146,86,.06); font: 700 .76rem/1 var(--font-ui); letter-spacing: .1em; text-transform: uppercase; transition: border-color .2s ease, background .2s ease, color .2s ease; }
+.header-extras:hover { border-color: var(--border-active); background: rgba(175,146,86,.14); color: var(--gold-pale); }
 
 /* Hero + busca */
 .help-hero { position: relative; overflow: hidden; padding: 5rem 0 5.5rem; border-bottom: 1px solid var(--border); background: radial-gradient(ellipse 70% 90% at 50% 0%, rgba(175,146,86,.2), transparent 70%), linear-gradient(180deg, #121014, #0a0a0b); }
