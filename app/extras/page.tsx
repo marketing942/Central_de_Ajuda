@@ -25,7 +25,7 @@ export default function ExtrasPage() {
         <div className="container">
           <ExtrasHead
             titulo={<>Além das <em>aulas</em></>}
-            lead="Serviços e benefícios para facilitar a sua rotina de estudos, dentro e fora do CPPEM."
+            lead="Serviços e benefícios que facilitam sua vida dentro e fora do CPPEM."
           />
           <ul className="ex-grid" style={{ listStyle: "none", margin: 0, padding: 0 }}>
             {ITENS_EXTRAS.map((item) => {
