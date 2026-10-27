@@ -104,7 +104,24 @@
 .ex-ebook img { width: 176px; height: 176px; margin: 0 auto; border-radius: .7rem; object-fit: cover; }
 .ex-ebook b { display: block; margin-top: .3rem; font: 700 1.25rem/1.15 var(--font-display); text-transform: uppercase; }
 
+/* Autoescola: apresentação e tabelas de valores */
+.ex-hero-auto { display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; background: radial-gradient(120% 90% at 50% 0%, rgba(90,60,10,.55) 0%, var(--surface) 70%); }
+.ex-hero-auto img { width: 96px; height: 96px; flex: 0 0 auto; border: 1px solid var(--border-active); border-radius: 1rem; }
+.ex-tabela { margin-top: 1.4rem; overflow: hidden; border: 1px solid var(--border); border-radius: .9rem; background: var(--surface); }
+.ex-tabela > header { padding: .8rem 1.1rem; border-bottom: 1px solid var(--border); background: var(--surface-2); }
+.ex-tabela > header h2 { margin: 0; font: 700 1.15rem/1.2 var(--font-display); text-transform: uppercase; }
+.ex-tabela ul { margin: 0; padding: 0; list-style: none; }
+.ex-linha { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: .8rem 1.1rem; border-top: 1px solid var(--border); }
+.ex-linha:first-child { border-top: 0; }
+.ex-linha-nome { margin: 0; font-size: .92rem; font-weight: 600; }
+.ex-linha-valor { margin: 0; flex: 0 0 auto; color: var(--gold-pale); font: 700 1rem/1.3 var(--font-display); white-space: nowrap; }
+.ex-linha-valor.grande { font-size: 1.35rem; font-weight: 800; }
+.ex-linha-sub { padding: .5rem 1.1rem; border-block: 1px solid var(--border); background: rgba(175,146,86,.06); color: var(--gold-light); font: 700 .7rem/1.3 var(--font-ui); letter-spacing: .12em; text-transform: uppercase; }
+.ex-tabela-nota { margin: 0; padding: .8rem 1.1rem; border-top: 1px solid var(--border); background: rgba(175,146,86,.05); color: var(--text-soft); font-size: .8rem; line-height: 1.6; }
+
 @media (min-width: 640px) {
+  .ex-hero-auto { flex-direction: row; text-align: left; }
+  .ex-hero-auto img { width: 112px; height: 112px; }
   .ex-banner-art { height: 250px; }
   .ex-wifi { grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
   .ex-qr { margin: 0; }
