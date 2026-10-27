@@ -90,9 +90,6 @@ export const rotaUrl = (u: Pick<Unidade, "lat" | "lng">) => `https://www.google.
 
 export const LINKS = {
   parceiros: "https://cppem.com.br/parceiros",
-  dominioFinanceiro: "https://app-dominio-financeiro1.vercel.app/",
-  ebook: "https://checkout.cppem.com.br/pay/ebook-de-educacao-financeira-01",
-  lifeBoard: "https://app-life-board.vercel.app/",
 };
 
 export const EDUCACAO = [

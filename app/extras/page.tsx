@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight, CalendarCheck, CarFront, Dumbbell, Handshake, MapPin, School, UtensilsCrossed, Wallet, Wifi } from "lucide-react";
+import { ArrowUpRight, CarFront, Dumbbell, Handshake, MapPin, School, UtensilsCrossed, Wifi } from "lucide-react";
 import { ExtrasHead } from "@/components/extras/extras-head";
 import { ContactSection } from "@/components/site-chrome";
 import { ITENS_EXTRAS } from "@/lib/extras/itens";
 import { openGraphFor } from "@/lib/seo";
 import "./extras.css";
 
-const description = "Wi-Fi, alimentação, academia, autoescola, finanças, metas, educação e parceiros: serviços e benefícios do CPPEM além das aulas.";
+const description = "Wi-Fi, alimentação, academia, autoescola, educação e parceiros: serviços e benefícios do CPPEM além das aulas.";
 
 export const metadata: Metadata = {
   title: "Extras para alunos",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: openGraphFor({ title: "Extras para alunos | Central de Ajuda CPPEM", description, path: "/extras" }),
 };
 
-const ICONES = { wifi: Wifi, food: UtensilsCrossed, gym: Dumbbell, car: CarFront, wallet: Wallet, goals: CalendarCheck, school: School, partners: Handshake };
+const ICONES = { wifi: Wifi, food: UtensilsCrossed, gym: Dumbbell, car: CarFront, school: School, partners: Handshake };
 
 export default function ExtrasPage() {
   return (

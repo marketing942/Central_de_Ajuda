@@ -18,6 +18,13 @@ const nextConfig: NextConfig = {
       ],
     };
   },
+  // Páginas que saíram dos Extras: quem tiver o endereço antigo cai na lista de extras.
+  async redirects() {
+    return [
+      { source: "/extras/financas", destination: "/extras", permanent: true },
+      { source: "/extras/metas", destination: "/extras", permanent: true },
+    ];
+  },
   experimental: {
     optimizePackageImports: ["lucide-react"],
   },
