@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUp, ArrowUpRight, Bot, Headset, MapPin, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowUp, ArrowUpRight, MapPin, ShieldCheck, Sparkles } from "lucide-react";
 import { CategoryIcon } from "@/components/category-icon";
 import { SOCIAL_LINKS, SocialIcon } from "@/components/social-icons";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { channelReturnLabel, isChannelOpen, MAIN_SITE_URL, SCAM_CHECK_PATH, SUPPORT_CHANNELS } from "@/lib/contact";
 import { getHelpCenter } from "@/lib/notion/help-center";
 
@@ -94,11 +95,10 @@ export async function SiteFooter() {
           <ul className="footer-channels">
             {SUPPORT_CHANNELS.map((channel) => {
               const open = isChannelOpen(channel);
-              const Icon = channel.kind === "ai" ? Bot : Headset;
               return (
                 <li key={channel.id}>
                   <a href={channel.href} target="_blank" rel="noreferrer">
-                    <Icon size={18} aria-hidden />
+                    <WhatsAppIcon size={18} />
                     <span>
                       <strong>{channel.title}</strong>
                       <small>{channel.hoursLabel}</small>

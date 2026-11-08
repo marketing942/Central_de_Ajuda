@@ -24,10 +24,9 @@
 
 ## Atendimento (WhatsApp)
 
-"Ainda precisa de ajuda?" (no fim das páginas e do popup) mostra dois canais,
-definidos em [lib/contact.ts](lib/contact.ts):
+"Ainda precisa de ajuda?" (no fim das páginas e do popup) mostra o canal de suporte,
+definido em [lib/contact.ts](lib/contact.ts) (o assistente virtual 24h foi desativado):
 
-- **Assistente virtual (IA), 24h** → `links.cppem.com.br/suporte-cppem-ass`
 - **Suporte ao aluno, seg. a sex. das 12h às 22h, exceto feriados** →
   `links.cppem.com.br/cppem-suporte-aluno` (mostra "Disponível agora" /
   "Volta segunda às 12h" pelo horário de Brasília; feriados em [lib/hours.ts](lib/hours.ts))
